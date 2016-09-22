@@ -1,0 +1,16 @@
+Time: 0
+--------
+Begin transaction 1
+Time: 1
+--------
+Transaction 1 dispatched instruction:
+Timestamp: 1
+Action: write
+Index: 3
+Value: 100
+
+Transaction 1 locked index 3 on Site 4
+Time: 2
+--------
+Site failure: 4
+Transaction 1 was aborted because Transaction 1 held a lock on site 4 that just failed.

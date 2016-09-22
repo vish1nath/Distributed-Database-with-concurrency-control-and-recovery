@@ -1,0 +1,50 @@
+Time: 0
+--------
+Begin transaction 1
+Time: 1
+--------
+Begin transaction 2
+Time: 2
+--------
+Transaction 1 dispatched instruction:
+Timestamp: 2
+Action: write
+Index: 3
+Value: 10
+
+Transaction 1 locked index 3 on Site 4
+Time: 3
+--------
+Site failure: 4
+Transaction 1 was aborted because Transaction 1 held a lock on site 4 that just failed.
+Time: 4
+--------
+Transaction 2 dispatched instruction:
+Timestamp: 4
+Action: write
+Index: 3
+Value: 20
+
+No site was up so transaction 2 tries again to dispatch instruction:
+Timestamp: 4
+Action: write
+Index: 3
+Value: 20
+
+Time: 5
+--------
+Site recovered: 4
+No site was up so transaction 2 tries again to dispatch instruction:
+Timestamp: 4
+Action: write
+Index: 3
+Value: 20
+
+Transaction 2 locked index 3 on Site 4
+Time: 6
+--------
+End transaction : 1
+Time: 7
+--------
+End transaction : 2
+Transaction 2 commits write 20 to index 3 to site(s)

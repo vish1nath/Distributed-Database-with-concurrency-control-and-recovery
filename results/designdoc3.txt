@@ -1,0 +1,55 @@
+Time: 0
+--------
+Begin transaction 1
+Time: 1
+--------
+Begin transaction 2
+Time: 2
+--------
+Transaction 1 dispatched instruction:
+Timestamp: 2
+Action: read
+Index: 3
+
+10
+Transaction 1 reads value 10 at index 3 at Site 4
+Time: 3
+--------
+Site failure: 2
+Time: 4
+--------
+Transaction 2 dispatched instruction:
+Timestamp: 4
+Action: write
+Index: 3
+Value: 20
+
+Transaction 2 was aborted because Transaction 2 is younger than 1.
+Time: 5
+--------
+Transaction 1 dispatched instruction:
+Timestamp: 5
+Action: write
+Index: 1
+Value: 40
+
+No site was up so transaction 1 tries again to dispatch instruction:
+Timestamp: 5
+Action: write
+Index: 1
+Value: 40
+
+Time: 6
+--------
+Site recovered: 2
+No site was up so transaction 1 tries again to dispatch instruction:
+Timestamp: 5
+Action: write
+Index: 1
+Value: 40
+
+Transaction 1 locked index 1 on Site 2
+Time: 7
+--------
+End transaction : 1
+Transaction 1 commits write 40 to index 1 to site(s)

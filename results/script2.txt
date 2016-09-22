@@ -1,0 +1,169 @@
+Time: 0
+--------
+Begin transaction 1
+Time: 1
+--------
+Begin read-only transaction 2
+Time: 2
+--------
+Transaction 1 dispatched instruction:
+Timestamp: 2
+Action: write
+Index: 1
+Value: 101
+
+Transaction 1 locked index 1 on Site 2
+Transaction 2 dispatched instruction:
+Timestamp: 2
+Action: read
+Index: 2
+
+10
+Read-only transaction 2 reads value 10 at index 2
+Time: 3
+--------
+Transaction 1 dispatched instruction:
+Timestamp: 3
+Action: write
+Index: 2
+Value: 102
+
+Transaction 1 locked index 2 on all available sites
+Transaction 2 dispatched instruction:
+Timestamp: 3
+Action: read
+Index: 1
+
+10
+Read-only transaction 2 reads value 10 at index 1
+Time: 4
+--------
+End transaction : 1
+Transaction 1 commits write 101 to index 1 to site(s)
+Transaction 1 commits write 102 to index 2 to site(s)
+Time: 5
+--------
+End transaction : 2
+Time: 6
+--------
+Dump all
+Site 1
+Index: 2 Value: 102
+Index: 4 Value: 10
+Index: 6 Value: 10
+Index: 8 Value: 10
+Index: 10 Value: 10
+Index: 12 Value: 10
+Index: 14 Value: 10
+Index: 16 Value: 10
+Index: 18 Value: 10
+Index: 20 Value: 10
+Site 2
+Index: 1 Value: 101
+Index: 2 Value: 102
+Index: 4 Value: 10
+Index: 6 Value: 10
+Index: 8 Value: 10
+Index: 10 Value: 10
+Index: 11 Value: 10
+Index: 12 Value: 10
+Index: 14 Value: 10
+Index: 16 Value: 10
+Index: 18 Value: 10
+Index: 20 Value: 10
+Site 3
+Index: 2 Value: 102
+Index: 4 Value: 10
+Index: 6 Value: 10
+Index: 8 Value: 10
+Index: 10 Value: 10
+Index: 12 Value: 10
+Index: 14 Value: 10
+Index: 16 Value: 10
+Index: 18 Value: 10
+Index: 20 Value: 10
+Site 4
+Index: 2 Value: 102
+Index: 3 Value: 10
+Index: 4 Value: 10
+Index: 6 Value: 10
+Index: 8 Value: 10
+Index: 10 Value: 10
+Index: 12 Value: 10
+Index: 13 Value: 10
+Index: 14 Value: 10
+Index: 16 Value: 10
+Index: 18 Value: 10
+Index: 20 Value: 10
+Site 5
+Index: 2 Value: 102
+Index: 4 Value: 10
+Index: 6 Value: 10
+Index: 8 Value: 10
+Index: 10 Value: 10
+Index: 12 Value: 10
+Index: 14 Value: 10
+Index: 16 Value: 10
+Index: 18 Value: 10
+Index: 20 Value: 10
+Site 6
+Index: 2 Value: 102
+Index: 4 Value: 10
+Index: 5 Value: 10
+Index: 6 Value: 10
+Index: 8 Value: 10
+Index: 10 Value: 10
+Index: 12 Value: 10
+Index: 14 Value: 10
+Index: 15 Value: 10
+Index: 16 Value: 10
+Index: 18 Value: 10
+Index: 20 Value: 10
+Site 7
+Index: 2 Value: 102
+Index: 4 Value: 10
+Index: 6 Value: 10
+Index: 8 Value: 10
+Index: 10 Value: 10
+Index: 12 Value: 10
+Index: 14 Value: 10
+Index: 16 Value: 10
+Index: 18 Value: 10
+Index: 20 Value: 10
+Site 8
+Index: 2 Value: 102
+Index: 4 Value: 10
+Index: 6 Value: 10
+Index: 7 Value: 10
+Index: 8 Value: 10
+Index: 10 Value: 10
+Index: 12 Value: 10
+Index: 14 Value: 10
+Index: 16 Value: 10
+Index: 17 Value: 10
+Index: 18 Value: 10
+Index: 20 Value: 10
+Site 9
+Index: 2 Value: 102
+Index: 4 Value: 10
+Index: 6 Value: 10
+Index: 8 Value: 10
+Index: 10 Value: 10
+Index: 12 Value: 10
+Index: 14 Value: 10
+Index: 16 Value: 10
+Index: 18 Value: 10
+Index: 20 Value: 10
+Site 10
+Index: 2 Value: 102
+Index: 4 Value: 10
+Index: 6 Value: 10
+Index: 8 Value: 10
+Index: 9 Value: 10
+Index: 10 Value: 10
+Index: 12 Value: 10
+Index: 14 Value: 10
+Index: 16 Value: 10
+Index: 18 Value: 10
+Index: 19 Value: 10
+Index: 20 Value: 10

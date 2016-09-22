@@ -1,0 +1,74 @@
+Time: 0
+--------
+Begin transaction 1
+Time: 1
+--------
+Begin transaction 2
+Time: 2
+--------
+Begin transaction 3
+Time: 3
+--------
+Begin transaction 4
+Time: 4
+--------
+Transaction 4 dispatched instruction:
+Timestamp: 4
+Action: write
+Index: 3
+Value: 33
+
+Transaction 4 locked index 3 on Site 4
+Time: 5
+--------
+Transaction 2 dispatched instruction:
+Timestamp: 5
+Action: write
+Index: 3
+Value: 23
+
+Transaction 2 waits because it is older than 4
+Transaction 2 is waiting.
+Time: 6
+--------
+Transaction 3 dispatched instruction:
+Timestamp: 6
+Action: write
+Index: 3
+Value: 43
+
+Transaction 3 waits because it is older than 4
+Transaction 3 is waiting.
+Time: 7
+--------
+Transaction 1 dispatched instruction:
+Timestamp: 7
+Action: write
+Index: 3
+Value: 53
+
+Transaction 1 waits because it is older than 4
+Transaction 1 is waiting.
+Time: 8
+--------
+End transaction : 4
+Transaction 4 commits write 33 to index 3 to site(s)
+Transaction 2 locked index 3 on Site 4
+Transaction 3 was aborted because Transaction 3 is younger than 2.
+Time: 9
+--------
+End transaction : 2
+Transaction 2 commits write 23 to index 3 to site(s)
+Transaction 1 locked index 3 on Site 4
+Time: 10
+--------
+End transaction : 3
+Time: 11
+--------
+End transaction : 1
+Transaction 1 commits write 53 to index 3 to site(s)
+Time: 12
+--------
+Dump all copies of variable at index 3
+Index 3
+Site: 4 Value: 53

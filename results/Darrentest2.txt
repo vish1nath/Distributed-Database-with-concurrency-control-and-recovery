@@ -1,0 +1,59 @@
+Time: 0
+--------
+Site failure: 4
+Time: 1
+--------
+Begin read-only transaction 2
+Read-only transaction 2 is checking if missing index(es) are readable yet.
+Time: 2
+--------
+Begin transaction 1
+Read-only transaction 2 is checking if missing index(es) are readable yet.
+Time: 3
+--------
+Site recovered: 4
+Read-only transaction 2 is checking if missing index(es) are readable yet.
+Time: 4
+--------
+Transaction 1 dispatched instruction:
+Timestamp: 4
+Action: write
+Index: 3
+Value: 30
+
+Transaction 1 locked index 3 on Site 4
+Time: 5
+--------
+Transaction 1 dispatched instruction:
+Timestamp: 5
+Action: write
+Index: 4
+Value: 40
+
+Transaction 1 locked index 4 on all available sites
+Time: 6
+--------
+End transaction : 1
+Transaction 1 commits write 30 to index 3 to site(s)
+Transaction 1 commits write 40 to index 4 to site(s)
+Time: 7
+--------
+Transaction 2 dispatched instruction:
+Timestamp: 7
+Action: read
+Index: 3
+
+10
+Read-only transaction 2 reads value 10 at index 3
+Time: 8
+--------
+Transaction 2 dispatched instruction:
+Timestamp: 8
+Action: read
+Index: 4
+
+10
+Read-only transaction 2 reads value 10 at index 4
+Time: 9
+--------
+End transaction : 2

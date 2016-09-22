@@ -1,0 +1,100 @@
+Time: 0
+--------
+Begin transaction 1
+Time: 1
+--------
+Begin transaction 2
+Time: 2
+--------
+Begin transaction 3
+Time: 3
+--------
+Begin read-only transaction 4
+Time: 4
+--------
+Transaction 2 dispatched instruction:
+Timestamp: 4
+Action: read
+Index: 1
+
+10
+Transaction 2 reads value 10 at index 1 at Site 2
+Time: 5
+--------
+Transaction 1 dispatched instruction:
+Timestamp: 5
+Action: write
+Index: 1
+Value: 30
+
+Transaction 1 waits because it is older than 2
+Transaction 1 is waiting.
+Transaction 2 dispatched instruction:
+Timestamp: 5
+Action: write
+Index: 1
+Value: 20
+
+Transaction 2 locked index 1 on Site 2
+Time: 6
+--------
+Transaction 4 dispatched instruction:
+Timestamp: 6
+Action: read
+Index: 3
+
+10
+Read-only transaction 4 reads value 10 at index 3
+Time: 7
+--------
+Site failure: 4
+Time: 8
+--------
+Transaction 3 dispatched instruction:
+Timestamp: 8
+Action: read
+Index: 3
+
+Transaction 3 is waiting.
+Time: 9
+--------
+End transaction : 2
+Transaction 2 commits write 20 to index 1 to site(s)
+Transaction 1 locked index 1 on Site 2
+Time: 10
+--------
+Site recovered: 4
+10
+Transaction 3 reads value 10 at index 3 at Site 4
+Time: 11
+--------
+Transaction 1 dispatched instruction:
+Timestamp: 11
+Action: write
+Index: 3
+Value: 60
+
+Transaction 1 waits because it is older than 3
+Transaction 1 is waiting.
+Time: 12
+--------
+Transaction 3 dispatched instruction:
+Timestamp: 12
+Action: write
+Index: 3
+Value: 23
+
+Transaction 3 locked index 3 on Site 4
+Time: 13
+--------
+End transaction : 4
+Time: 14
+--------
+End transaction : 3
+Transaction 3 commits write 23 to index 3 to site(s)
+Transaction 1 locked index 3 on Site 4
+Time: 15
+--------
+End transaction : 1
+Transaction 1 commits write 30 to index 1 to site(s)
+Transaction 1 commits write 60 to index 3 to site(s)

@@ -1,0 +1,67 @@
+Time: 0
+--------
+Begin transaction 1
+Time: 1
+--------
+Begin transaction 2
+Time: 2
+--------
+Transaction 1 dispatched instruction:
+Timestamp: 2
+Action: read
+Index: 1
+
+10
+Transaction 1 reads value 10 at index 1 at Site 2
+Time: 3
+--------
+Site failure: 2
+Transaction 1 was aborted because Transaction 1 held a lock on site 2 that just failed.
+Time: 4
+--------
+Transaction 2 dispatched instruction:
+Timestamp: 4
+Action: write
+Index: 8
+Value: 88
+
+Transaction 2 locked index 8 on all available sites
+Transaction 2 dispatched instruction:
+Timestamp: 4
+Action: read
+Index: 3
+
+10
+Transaction 2 reads value 10 at index 3 at Site 4
+Time: 5
+--------
+Transaction 1 dispatched instruction:
+Timestamp: 5
+Action: read
+Index: 5
+
+This transaction was aborted already.
+Time: 6
+--------
+End transaction : 2
+Transaction 2 commits write 88 to index 8 to site(s)
+Time: 7
+--------
+Site recovered: 2
+Time: 8
+--------
+End transaction : 1
+Time: 9
+--------
+Dump all copies of variable at index 8
+Index 8
+Site: 1 Value: 88
+Site: 2 Value: 10
+Site: 3 Value: 88
+Site: 4 Value: 88
+Site: 5 Value: 88
+Site: 6 Value: 88
+Site: 7 Value: 88
+Site: 8 Value: 88
+Site: 9 Value: 88
+Site: 10 Value: 88

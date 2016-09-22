@@ -1,0 +1,48 @@
+Time: 0
+--------
+Begin transaction 1
+Time: 1
+--------
+Begin transaction 2
+Time: 2
+--------
+Site failure: 3
+Site failure: 4
+Time: 3
+--------
+Transaction 1 dispatched instruction:
+Timestamp: 3
+Action: read
+Index: 1
+
+10
+Transaction 1 reads value 10 at index 1 at Site 2
+Time: 4
+--------
+Transaction 2 dispatched instruction:
+Timestamp: 4
+Action: write
+Index: 8
+Value: 88
+
+Transaction 2 locked index 8 on all available sites
+Time: 5
+--------
+End transaction : 1
+Time: 6
+--------
+Site recovered: 4
+Site recovered: 3
+Time: 7
+--------
+Transaction 2 dispatched instruction:
+Timestamp: 7
+Action: read
+Index: 3
+
+10
+Transaction 2 reads value 10 at index 3 at Site 4
+Time: 8
+--------
+End transaction : 2
+Transaction 2 commits write 88 to index 8 to site(s)

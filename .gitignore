@@ -1,0 +1,5 @@
+/bin
+.DS_Store
+src/project/.metadata/
+src/project/adb/.metadata/
+dv-output.txt

@@ -1,0 +1,102 @@
+Time: 0
+--------
+Begin transaction 1
+Time: 1
+--------
+Begin transaction 2
+Time: 2
+--------
+Transaction 2 dispatched instruction:
+Timestamp: 2
+Action: write
+Index: 3
+Value: 5080
+
+Transaction 2 locked index 3 on Site 4
+Time: 3
+--------
+Site failure: 2
+Time: 4
+--------
+Site recovered: 2
+Time: 5
+--------
+Begin transaction 3
+Time: 6
+--------
+Transaction 3 dispatched instruction:
+Timestamp: 6
+Action: write
+Index: 4
+Value: 20
+
+Transaction 3 locked index 4 on all available sites
+Time: 7
+--------
+End transaction : 3
+Transaction 3 commits write 20 to index 4 to site(s)
+Time: 8
+--------
+Transaction 2 dispatched instruction:
+Timestamp: 8
+Action: read
+Index: 6
+
+10
+Transaction 2 reads value 10 at index 6 at Site 1
+Time: 9
+--------
+End transaction : 2
+Transaction 2 commits write 5080 to index 3 to site(s)
+Time: 10
+--------
+Transaction 1 dispatched instruction:
+Timestamp: 10
+Action: read
+Index: 3
+
+5080
+Transaction 1 reads value 5080 at index 3 at Site 4
+Time: 11
+--------
+Transaction 1 dispatched instruction:
+Timestamp: 11
+Action: write
+Index: 6
+Value: 30
+
+Transaction 1 locked index 6 on all available sites
+Time: 12
+--------
+End transaction : 1
+Transaction 1 commits write 30 to index 6 to site(s)
+Time: 13
+--------
+Dump all variables at site 2
+Site 2
+Index: 1 Value: 10
+Index: 2 Value: 10
+Index: 4 Value: 20
+Index: 6 Value: 30
+Index: 8 Value: 10
+Index: 10 Value: 10
+Index: 11 Value: 10
+Index: 12 Value: 10
+Index: 14 Value: 10
+Index: 16 Value: 10
+Index: 18 Value: 10
+Index: 20 Value: 10
+Dump all variables at site 4
+Site 4
+Index: 2 Value: 10
+Index: 3 Value: 5080
+Index: 4 Value: 20
+Index: 6 Value: 30
+Index: 8 Value: 10
+Index: 10 Value: 10
+Index: 12 Value: 10
+Index: 13 Value: 10
+Index: 14 Value: 10
+Index: 16 Value: 10
+Index: 18 Value: 10
+Index: 20 Value: 10

@@ -1,0 +1,78 @@
+Time: 0
+--------
+Begin transaction 1
+Time: 1
+--------
+Begin transaction 2
+Time: 2
+--------
+Begin read-only transaction 3
+Time: 3
+--------
+Site failure: 4
+Time: 4
+--------
+Site recovered: 4
+Time: 5
+--------
+Transaction 2 dispatched instruction:
+Timestamp: 5
+Action: write
+Index: 3
+Value: 76
+
+Transaction 2 locked index 3 on Site 4
+Time: 6
+--------
+Transaction 2 dispatched instruction:
+Timestamp: 6
+Action: read
+Index: 3
+
+76
+Transaction 2 reads value 76 at index 3 at Site 4
+Time: 7
+--------
+Transaction 3 dispatched instruction:
+Timestamp: 7
+Action: read
+Index: 3
+
+10
+Read-only transaction 3 reads value 10 at index 3
+Time: 8
+--------
+Transaction 1 dispatched instruction:
+Timestamp: 8
+Action: write
+Index: 3
+Value: 77
+
+Transaction 1 waits because it is older than 2
+Transaction 1 is waiting.
+Time: 9
+--------
+End transaction : 2
+Transaction 2 commits write 76 to index 3 to site(s)
+Transaction 1 locked index 3 on Site 4
+Time: 10
+--------
+End transaction : 1
+Transaction 1 commits write 77 to index 3 to site(s)
+Time: 11
+--------
+Transaction 3 dispatched instruction:
+Timestamp: 11
+Action: read
+Index: 3
+
+10
+Read-only transaction 3 reads value 10 at index 3
+Time: 12
+--------
+End transaction : 3
+Time: 13
+--------
+Dump all the committed values
+X3: 77 at site 4
+All other variables have their initial values.

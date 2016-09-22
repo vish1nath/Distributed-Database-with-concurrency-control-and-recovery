@@ -1,0 +1,37 @@
+#!/usr/bin/env ruby 
+
+`java -jar dv.jar ./scripts/Darrentest.txt; mv dv-output.txt ./results/Darrentest.txt`
+`java -jar dv.jar ./scripts/Darrentest2.txt; mv dv-output.txt ./results/Darrentest2.txt`
+`java -jar dv.jar ./scripts/Darrentest3.txt; mv dv-output.txt ./results/Darrentest3.txt`
+`java -jar dv.jar ./scripts/DarrenTest4.txt; mv dv-output.txt ./results/DarrenTest4.txt`
+`java -jar dv.jar ./scripts/DarrenTest5.txt; mv dv-output.txt ./results/DarrenTest5.txt`
+`java -jar dv.jar ./scripts/DarrenTest6.txt; mv dv-output.txt ./results/DarrenTest6.txt`
+`java -jar dv.jar ./scripts/DarrenTest7.txt; mv dv-output.txt ./results/DarrenTest7.txt`
+`java -jar dv.jar ./scripts/designdoc1.txt; mv dv-output.txt ./results/designdoc1.txt`
+`java -jar dv.jar ./scripts/designdoc2.txt; mv dv-output.txt ./results/designdoc2.txt`
+`java -jar dv.jar ./scripts/designdoc3.txt; mv dv-output.txt ./results/designdoc3.txt`
+`java -jar dv.jar ./scripts/dtest1.txt; mv dv-output.txt ./results/dtest1.txt`
+`java -jar dv.jar ./scripts/dtest2.txt; mv dv-output.txt ./results/dtest2.txt`
+`java -jar dv.jar ./scripts/emailscript1.txt; mv dv-output.txt ./results/emailscript1.txt`
+`java -jar dv.jar ./scripts/emailscript2.txt; mv dv-output.txt ./results/emailscript2.txt`
+`java -jar dv.jar ./scripts/emailscript3.txt; mv dv-output.txt ./results/emailscript3.txt`
+`java -jar dv.jar ./scripts/script1.txt; mv dv-output.txt ./results/script1.txt`
+`java -jar dv.jar ./scripts/script2.txt; mv dv-output.txt ./results/script2.txt`
+`java -jar dv.jar ./scripts/script3.txt; mv dv-output.txt ./results/script3.txt`
+`java -jar dv.jar ./scripts/script4.txt; mv dv-output.txt ./results/script4.txt`
+`java -jar dv.jar ./scripts/script5.txt; mv dv-output.txt ./results/script5.txt`
+`java -jar dv.jar ./scripts/script6.txt; mv dv-output.txt ./results/script6.txt`
+`java -jar dv.jar ./scripts/script7.txt; mv dv-output.txt ./results/script7.txt`
+`java -jar dv.jar ./scripts/script8.txt; mv dv-output.txt ./results/script8.txt`
+`java -jar dv.jar ./scripts/script9.txt; mv dv-output.txt ./results/script9.txt`
+`java -jar dv.jar ./scripts/script10.txt; mv dv-output.txt ./results/script10.txt`
+`java -jar dv.jar ./scripts/script11.txt; mv dv-output.txt ./results/script11.txt`
+`java -jar dv.jar ./scripts/script12.txt; mv dv-output.txt ./results/script13.txt`
+`java -jar dv.jar ./scripts/syllabustest.txt; mv dv-output.txt ./results/syllabustest.txt`
+`java -jar dv.jar ./scripts/vscript1.txt; mv dv-output.txt ./results/vscript1.txt`
+`java -jar dv.jar ./scripts/vscript2.txt; mv dv-output.txt ./results/vscript2.txt`
+`java -jar dv.jar ./scripts/vscript3.txt; mv dv-output.txt ./results/vscript3.txt`
+`java -jar dv.jar ./scripts/vscript4.txt; mv dv-output.txt ./results/vscript4.txt`
+`java -jar dv.jar ./scripts/vscript5.txt; mv dv-output.txt ./results/vscript5.txt`
+`java -jar dv.jar ./scripts/vscript6.txt; mv dv-output.txt ./results/vscript6.txt`
+`java -jar dv.jar ./scripts/vtestscript.txt; mv dv-output.txt ./results/vtestscript.txt`

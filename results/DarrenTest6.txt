@@ -1,0 +1,36 @@
+Time: 0
+--------
+Begin transaction 1
+Time: 1
+--------
+Site failure: 2
+Time: 2
+--------
+Transaction 1 dispatched instruction:
+Timestamp: 2
+Action: write
+Index: 8
+Value: 88
+
+Transaction 1 locked index 8 on all available sites
+Time: 3
+--------
+Site recovered: 2
+Time: 4
+--------
+End transaction : 1
+Transaction 1 commits write 88 to index 8 to site(s)
+Time: 5
+--------
+Dump all copies of variable at index 8
+Index 8
+Site: 1 Value: 88
+Site: 2 Value: 10
+Site: 3 Value: 88
+Site: 4 Value: 88
+Site: 5 Value: 88
+Site: 6 Value: 88
+Site: 7 Value: 88
+Site: 8 Value: 88
+Site: 9 Value: 88
+Site: 10 Value: 88

@@ -1,0 +1,6 @@
+begin(T2)
+W(T2,x9,20)
+beginRO(T1)
+end(T2)
+R(T1,x9)
+end(T1)

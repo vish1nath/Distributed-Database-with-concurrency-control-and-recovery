@@ -1,0 +1,8 @@
+begin(T1)
+begin(T2)
+W(T1,x3,10)
+fail(4)
+W(T2,x3,20)
+recover(4)
+end(T1)
+end(T2)

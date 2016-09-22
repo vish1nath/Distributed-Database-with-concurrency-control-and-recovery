@@ -1,0 +1,36 @@
+Time: 0
+--------
+Begin transaction 1
+Time: 1
+--------
+Begin transaction 2
+Time: 2
+--------
+Transaction 1 dispatched instruction:
+Timestamp: 2
+Action: read
+Index: 2
+
+10
+Transaction 1 reads value 10 at index 2 at Site 1
+Time: 3
+--------
+Transaction 2 dispatched instruction:
+Timestamp: 3
+Action: read
+Index: 2
+
+10
+Transaction 2 reads value 10 at index 2 at Site 1
+Time: 4
+--------
+Transaction 2 dispatched instruction:
+Timestamp: 4
+Action: write
+Index: 2
+Value: 10
+
+Transaction 2 was aborted because Transaction 2 is younger than 1.
+Time: 5
+--------
+End transaction : 1

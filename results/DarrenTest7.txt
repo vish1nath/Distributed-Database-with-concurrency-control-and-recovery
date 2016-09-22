@@ -1,0 +1,48 @@
+Time: 0
+--------
+Begin transaction 1
+Time: 1
+--------
+Begin transaction 2
+Time: 2
+--------
+Transaction 2 dispatched instruction:
+Timestamp: 2
+Action: read
+Index: 2
+
+10
+Transaction 2 reads value 10 at index 2 at Site 1
+Time: 3
+--------
+Transaction 1 dispatched instruction:
+Timestamp: 3
+Action: write
+Index: 2
+Value: 80
+
+Transaction 1 waits because it is older than 2
+Transaction 1 locked index 2 on all available sites
+Transaction 1 is waiting.
+Time: 4
+--------
+End transaction : 2
+Transaction 1 locked index 2 on Site 1
+Time: 5
+--------
+End transaction : 1
+Transaction 1 commits write 80 to index 2 to site(s)
+Time: 6
+--------
+Dump all copies of variable at index 2
+Index 2
+Site: 1 Value: 80
+Site: 2 Value: 80
+Site: 3 Value: 80
+Site: 4 Value: 80
+Site: 5 Value: 80
+Site: 6 Value: 80
+Site: 7 Value: 80
+Site: 8 Value: 80
+Site: 9 Value: 80
+Site: 10 Value: 80
